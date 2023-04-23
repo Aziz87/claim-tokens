@@ -28,8 +28,8 @@ donor.getTransactionCount("pending").then(async (nonce: number) => {
 
 
         const req = [
-            ...part.map(x => ({ target: nftAddress, method: "balanceOf", arguments: [new ethers.Wallet(x).address], face: new Interface(erc20Abi) })),
-            ...part.map(x => ({ target: LineaGoerli.multicall, method: "getEthBalance", arguments: [new ethers.Wallet(x).address], face: new Interface(multicallAbi) }))
+            ...part.map(x => ({ target: nftAddress, method: "balanceOf", arguments: [x], face: new Interface(erc20Abi) })),
+            ...part.map(x => ({ target: LineaGoerli.multicall, method: "getEthBalance", arguments: [x], face: new Interface(multicallAbi) }))
         ]
 
         const mc = await multiCall(LineaGoerli, req);
