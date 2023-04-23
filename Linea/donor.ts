@@ -2,7 +2,7 @@ import * as ethers from "ethers";
 import { Interface, formatEther, parseEther, parseUnits } from "ethers/lib/utils";
 import * as fs from "fs"
 import LineaGoerli from '../nets/linea-goerli.net';
-const pacients: string[] = JSON.parse(fs.readFileSync("../secrets/wallets_with_linea.json").toString()).map((x: any) => x.a)
+const pacients: string[] = JSON.parse(fs.readFileSync("../secrets/wallets_for_linea.json").toString()).map((x: any) => x.a)
 import { multiCall } from "../multicall/multicall";
 import multicallAbi from "../multicall/multicall-abi"
 import * as dotenv from 'dotenv'

@@ -13,7 +13,7 @@ const provider = new ethers.providers.JsonRpcProvider("https://rpc.goerli.linea.
 const gasPrice = "1.5"
 const nftAddress: string = "0x91ba8a14d2cc851abb69212c09f59e06e1e7f0a5";
 const nftSeller: string = "0x9C4c49C3c3bd7ab49D91576d0103A25514CaD1D6";
-const privateKeys: string[] = JSON.parse(fs.readFileSync("../secrets/wallets_with_linea.json").toString()).map((x: any) => x.p).splice(830);
+const privateKeys: string[] = JSON.parse(fs.readFileSync("../secrets/wallets_for_linea.json").toString()).map((x: any) => x.p).splice(830);
 const data = '0x9b6528e20000000000000000000000009C5742eD0c9224f63b1717a24397901eF8A77777';
 
 (async () => {
