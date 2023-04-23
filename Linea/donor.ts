@@ -7,7 +7,7 @@ import { multiCall } from "../multicall/multicall";
 import multicallAbi from "../multicall/multicall-abi"
 import * as dotenv from 'dotenv'
 import erc20Abi from "../multicall/erc20-abi";
-dotenv.config()
+dotenv.config({ path: "../.env" })
 
 
 const provider = new ethers.providers.JsonRpcProvider("https://rpc.goerli.linea.build")
@@ -53,7 +53,7 @@ donor.getTransactionCount("pending").then(async (nonce: number) => {
                 gasLimit: 21000, gasPrice: Number(parseUnits(gasPrice, "gwei"))
             }).then(async a => {
                 const r: ethers.providers.TransactionReceipt = await a.wait();
-                console.log(r.transactionHash)
+                console.log("hash", r.transactionHash)
             }).catch(err => console.error(err?.body ? JSON.parse(err?.body).error.message : err))
 
         }
