@@ -50,11 +50,11 @@ donor.getTransactionCount("pending").then(async (nonce: number) => {
             await new Promise(resolve => setTimeout(resolve, 400))
             donor.sendTransaction({
                 to, value: ethers.utils.parseEther(value), nonce,
-                gasLimit: 21000, gasPrice: Number(parseUnits(gasPrice, "gwei"))
+                gasLimit: 22000, gasPrice: Number(parseUnits(gasPrice, "gwei"))
             }).then(async a => {
                 const r: ethers.providers.TransactionReceipt = await a.wait();
                 console.log("hash", r.transactionHash)
-            }).catch(err => console.error(err?.body ? JSON.parse(err?.body).error.message : err))
+            }).catch(err => console.error(err?.body ? JSON.parse(err?.body).error.message : err.code || err.reason))
 
         }
     }
