@@ -17,7 +17,6 @@ const privateKeys: string[] = JSON.parse(fs.readFileSync("../secrets/wallets_for
 const data = '0x9b6528e20000000000000000000000009C5742eD0c9224f63b1717a24397901eF8A77777';
 
 (async () => {
-    privateKeys.splice(0, 100);
     while (privateKeys.length) {
 
         const part = privateKeys.splice(0, 100);
